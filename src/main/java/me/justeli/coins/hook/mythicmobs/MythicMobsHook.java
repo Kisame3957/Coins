@@ -3,6 +3,7 @@ package me.justeli.coins.hook.mythicmobs;
 import io.lumine.mythic.api.config.MythicLineConfig;
 import io.lumine.mythic.bukkit.BukkitAPIHelper;
 import io.lumine.mythic.bukkit.adapters.BukkitItemStack;
+import io.lumine.mythic.bukkit.adapters.item.ItemComponentBukkitItemStack;
 import io.lumine.mythic.bukkit.events.MythicDropLoadEvent;
 import io.lumine.mythic.core.drops.droppables.VanillaItemDrop;
 import me.justeli.coins.Coins;
@@ -35,7 +36,7 @@ public final class MythicMobsHook
         {
             String line = event.getConfig().getLine();
             MythicLineConfig config = event.getConfig();
-            BukkitItemStack coin = new BukkitItemStack(this.coins.getCreateCoin().dropped());
+            BukkitItemStack coin = new ItemComponentBukkitItemStack(this.coins.getCreateCoin().dropped());
 
             VanillaItemDrop drop = new VanillaItemDrop(line, config, coin);
             event.register(drop);
